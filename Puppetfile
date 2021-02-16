@@ -19,3 +19,6 @@ forge 'https://forge.puppet.com'
 #yay
 #mod autosign
 mod 'danieldreier-autosign', '0.3.0'
+
+#mod inifile
+mod 'puppetlabs-inifile', 'latest'
