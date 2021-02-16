@@ -41,7 +41,7 @@ node puppetmaster.platform9.puppet.net {
         'loglevel' => 'INFO',
       },
       'jwt_token' => {
-        'secret'   => 'JAVABAD'
+        'secret'   => 'JAVABAD',
         'validity' => '7200',
       }
     },
