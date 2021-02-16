@@ -24,6 +24,30 @@ File { backup => false }
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
+
+node puppetmaster.platform9.puppet.net {
+  ini_setting { 'policy-based autosigning':
+    setting => 'autosign',
+    path    => "${confdir}/puppet.conf",
+    section => 'master',
+    value   => '/opt/puppetlabs/ipuppet/bin/autosign-validator',
+    notify  => Service['pe-puppetserver'],
+  }
+
+  class { ::autosign:
+    ensure => 'latest',
+    config => {
+      'general' => {
+        'loglevel' => 'INFO',
+      },
+      'jwt_token' => {
+        'secret'   => 'JAVABAD'
+        'validity' => '7200',
+      }
+    },
+  }
+}
+
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
