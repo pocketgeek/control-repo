@@ -30,7 +30,7 @@ node puppetmaster.platform9.puppet.net {
     setting => 'autosign',
     path    => "${confdir}/puppet.conf",
     section => 'master',
-    value   => '/opt/puppetlabs/ipuppet/bin/autosign-validator',
+    value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
     notify  => Service['pe-puppetserver'],
   }
 
