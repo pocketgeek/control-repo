@@ -26,5 +26,5 @@ mod 'puppetlabs-stdlib', '6.6.0'
 
 #puppet-abide
 mod 'puppetlabs-abide'
-  git:    'git@github.com:pocketgeek/puppetlabs-abide.git'
+  git:    'git@github.com:pocketgeek/puppetlabs-abide.git',
   branch: 'main'
