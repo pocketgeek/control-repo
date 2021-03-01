@@ -29,10 +29,8 @@ mod 'puppetlabs-abide',
   git:    'git@github.com:pocketgeek/puppetlabs-abide.git',
   branch: 'main'
 
-mod 'puppetlabs-stdlib', '4.13.1'
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-puppet_agent', '4.0.0'
-mod 'puppetlabs-inifile', '1.6.0'
 mod 'puppetlabs-mount_providers', '2.0.1'
 mod 'puppetlabs-augeas_core', '1.1.1'
 mod 'puppetlabs-firewall',	'2.8.1'
