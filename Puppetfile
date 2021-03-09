@@ -50,4 +50,4 @@ mod 'herculesteam-augeasproviders_mounttab',	'2.1.1'
 mod 'herculesteam-augeasproviders_pam', '2.2.1'
 mod 'herculesteam-augeasproviders_shellvar',	'4.0.0'
 mod 'herculesteam-augeasproviders_ssh', '4.0.0'
-
+mod 'ayohrling-local_security_policy', '0.8.1'
