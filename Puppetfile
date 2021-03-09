@@ -39,6 +39,11 @@ mod 'hwfiledir',
   git:    'git@github.com:pocketgeek/hwfiledir.git',
   branch: 'main'
 
+#hwregistry
+mod 'hwregistry',
+  git:    'git@github.com:pocketgeek/hwregistry.git',
+  branch: 'main'
+
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-puppet_agent', '4.0.0'
 mod 'puppetlabs-mount_providers', '2.0.1'
