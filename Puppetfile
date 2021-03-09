@@ -44,6 +44,11 @@ mod 'hwregistry',
   git:    'git@github.com:pocketgeek/hwregistry.git',
   branch: 'main'
 
+#hwiis
+mod 'hwiis',
+  git:    'git@github.com:pocketgeek/hwiis.git',
+  branch: 'main'
+
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-puppet_agent', '4.0.0'
 mod 'puppetlabs-mount_providers', '2.0.1'
