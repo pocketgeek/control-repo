@@ -49,6 +49,11 @@ mod 'hwiis',
   git:    'git@github.com:pocketgeek/hwiis.git',
   branch: 'main'
 
+#hw7zip
+mod 'hw7zip',
+  git:    'git@github.com:pocketgeek/hw7zip.git',
+  branch: 'main'
+
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-puppet_agent', '4.0.0'
 mod 'puppetlabs-mount_providers', '2.0.1'
@@ -70,3 +75,4 @@ mod 'puppetlabs-acl', '4.0.0'
 mod 'puppetlabs-registry', '4.0.0'
 mod 'puppet-windowsfeature', '3.2.2'
 mod 'puppetlabs-iis', '8.0.0'
+mod 'puppet-archive', '4.6.0'
