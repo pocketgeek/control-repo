@@ -54,6 +54,11 @@ mod 'hw7zip',
   git:    'git@github.com:pocketgeek/hw7zip.git',
   branch: 'main'
 
+#hwprofiles
+mod 'hwprofiles',
+  git:    'git@github.com:pocketgeek/hwprofiles.git',
+  branch: 'main'
+
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-puppet_agent', '4.0.0'
 mod 'puppetlabs-mount_providers', '2.0.1'
