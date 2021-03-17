@@ -1,0 +1,4 @@
+---
+hwaccounts::accountname: 'hwuser'
+hwaccounts::groupname: 'hwgroup'
+
