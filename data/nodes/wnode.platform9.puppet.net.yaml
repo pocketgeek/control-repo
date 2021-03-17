@@ -2,3 +2,4 @@
 hwaccounts::accountname: 'hwuser'
 hwaccounts::groupname: 'hwgroup'
 
+hwfiledir::directory: 'c:\\hwdirectory'
