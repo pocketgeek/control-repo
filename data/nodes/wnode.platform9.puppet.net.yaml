@@ -4,5 +4,5 @@ hwaccounts::groupname: 'hwgroup'
 
 hwfiledir::directory: 'c:\hwdirectory'
 
-hwiis::websitename: 'PONIES!!!'
+hwiis::websitename: 'PONIES'
 hwiis::websitedirectory: 'c:\PONIES'
