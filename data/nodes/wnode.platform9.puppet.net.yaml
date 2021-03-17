@@ -1,6 +1,7 @@
 ---
 hwaccounts::accountname: 
   - 'hwuser'
+  - 'hwuser2'
 hwaccounts::groupname: 'hwgroup'
 
 hwfiledir::directory: 'c:\hwdirectory'
