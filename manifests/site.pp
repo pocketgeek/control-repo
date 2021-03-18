@@ -48,7 +48,5 @@ node puppetmaster.platform9.puppet.net {
   }
 }
 
-  include profile::base
 node default {
-  include profile::base
 }

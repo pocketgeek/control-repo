@@ -1,5 +1,5 @@
 class role::monolith {
 
-  include prfile::base
+  include profile::base
 
 }
