@@ -16,6 +16,7 @@ class profile::base (
     user{ $account:
       ensure => present,
       groups => $sysadmingroup,
+      require => Group[$sysadmingroup],
     }
   }
 
