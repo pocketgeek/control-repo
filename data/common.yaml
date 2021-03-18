@@ -1,6 +1,5 @@
 ---
 message: "This node is using common data"
----
 profile::base::sysadmins:
   - 'adminuser1'
   - 'adminuser2'
