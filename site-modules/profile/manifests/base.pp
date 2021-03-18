@@ -1,7 +1,7 @@
 class profile::base (
 
   Array[String] $sysadmins,
-  String $admingroup,
+  String $sysadmingroup,
   String $sysadminplayground,
   Array[String] $stdpackages,
 ) {
