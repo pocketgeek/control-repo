@@ -1,2 +1,13 @@
 ---
 message: "This node is using common data"
+---
+profile::base::sysadmins:
+  - 'adminuser1'
+  - 'adminuser2'
+profile::base::sysadmingroup::groupname: 'admingroup'
+
+profile::base::sysadminplayground: 'c:\sysadminplayground'
+
+profile::base::stdpackages:
+  - 7zip
+
