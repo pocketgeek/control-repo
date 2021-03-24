@@ -26,4 +26,59 @@ class profile::base (
     policy_value => $sysadmingroup,
   }
 
+  #sysadmin full access directory
+  file { $sysadminplayground:
+    ensure => directory,
+    group  => $admingroup,
+  }
+
+  #Set required rights
+  acl { $sysadminplayground:
+    permissions => [
+      { identity => $sysadmins, rights => ['full'] },
+      { identity => $sysadmingroup, rights => ['read'] }
+    ],
+  }
+
+  #Standard packages
+  $stdpackages.each |String $package| {
+    user{ $package:
+      ensure   => installed,
+      provider => 'chocolatey',
+      notify   => Reboot['after_run'],
+    }
+  }
+
+  reboot { 'after_run':
+    apply  => finished,
+  }
+
+  #Disable Internet Explorer Enhanced Security.  Once these settings are changed a log off/on is required
+  #Found here: https://www.vultr.com/docs/how-to-disable-internet-explorer-enhanced-security-configuration-on-windows-server
+  #because Microsoft isn't an authoritative source for Windows settings...apparently.
+  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\IsInstalled':
+    ensure => present,
+    type   => dword,
+    data   => '00000001',
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+    ensure => present,
+    type   => dword,
+    data   => '00000001',
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+    ensure => present,
+    type   => dword,
+    data   => '00000001',
+  }
+
+  #Enable Shutdown Tracker
+  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Reliability\ShutdownReasonOn':
+    ensure => present,
+    type   => dword,
+    data   => '00000001',
+  }
+
 }
