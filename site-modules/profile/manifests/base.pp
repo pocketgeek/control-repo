@@ -34,8 +34,9 @@ class profile::base (
 
   #Set required rights
   $sysadmins.each |String $sysadmin| {
-    acl { $sysadminplayground:
-      permissions => [
+    acl { "${sysadminplayground}-${sysadmin}":
+      target       => $sysadminplayground,
+      permissions  => [
         { identity => $sysadmin, rights => ['full'] },
         { identity => $sysadmingroup, rights => ['read'] }
       ],
