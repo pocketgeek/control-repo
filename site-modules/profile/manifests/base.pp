@@ -35,7 +35,7 @@ class profile::base (
   #Set required rights
   acl { $sysadminplayground:
     permissions => [
-      { identity => $sysadmins, rights => ['full'] },
+      { identity => $sysadmins[1], rights => ['full'] },
       { identity => $sysadmingroup, rights => ['read'] }
     ],
   }
