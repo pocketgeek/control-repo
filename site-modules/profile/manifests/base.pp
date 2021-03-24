@@ -33,11 +33,13 @@ class profile::base (
   }
 
   #Set required rights
-  acl { $sysadminplayground:
-    permissions => [
-      { identity => $sysadmins[1], rights => ['full'] },
-      { identity => $sysadmingroup, rights => ['read'] }
-    ],
+  $sysadmins.each |String $sysadmin| {
+    acl { $sysadminplayground:
+      permissions => [
+        { identity => $sysadmin, rights => ['full'] },
+        { identity => $sysadmingroup, rights => ['read'] }
+      ],
+    }
   }
 
   #Standard packages
