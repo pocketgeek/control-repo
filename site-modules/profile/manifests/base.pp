@@ -42,7 +42,7 @@ class profile::base (
 
   #Standard packages
   $stdpackages.each |String $package| {
-    user{ $package:
+    package{ $package:
       ensure   => installed,
       provider => 'chocolatey',
       notify   => Reboot['after_run'],
