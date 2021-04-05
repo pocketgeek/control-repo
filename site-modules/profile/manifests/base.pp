@@ -21,10 +21,12 @@ class profile::base (
   }
 
   #Make sure they have Log on as a service rights.
-#  local_security_policy { "Log on as a service":
-#    ensure       => present,
-#    policy_value => $sysadmingroup,
-#  }
+  $sysadmins.each |String $sysadmin| {
+    local_security_policy { "Log on as a service":
+      ensure       => present,
+      policy_value => $sysadmin,
+    }
+  }
 
   #sysadmin full access directory
   file { $sysadminplayground:
@@ -44,13 +46,11 @@ class profile::base (
   }
 
   #Standard packages
-#  $stdpackages.each |String $package| {
     package{ $stdpackages:
       ensure   => installed,
       provider => 'chocolatey',
       notify   => Reboot['after_run'],
     }
-#  }
 
   reboot { 'after_run':
     apply  => finished,
