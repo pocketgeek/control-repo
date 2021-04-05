@@ -21,10 +21,10 @@ class profile::base (
   }
 
   #Make sure they have Log on as a service rights.
-  local_security_policy { "Log on as a service":
-    ensure       => present,
-    policy_value => $sysadmingroup,
-  }
+#  local_security_policy { "Log on as a service":
+#    ensure       => present,
+#    policy_value => $sysadmingroup,
+#  }
 
   #sysadmin full access directory
   file { $sysadminplayground:
