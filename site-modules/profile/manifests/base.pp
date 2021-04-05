@@ -45,11 +45,11 @@ class profile::base (
 
   #Standard packages
 #  $stdpackages.each |String $package| {
-#    package{ $package:
-#      ensure   => installed,
-#      provider => 'chocolatey',
-#      notify   => Reboot['after_run'],
-#    }
+    package{ $stdpackages:
+      ensure   => installed,
+      provider => 'chocolatey',
+      notify   => Reboot['after_run'],
+    }
 #  }
 
   reboot { 'after_run':
