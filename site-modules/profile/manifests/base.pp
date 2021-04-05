@@ -21,12 +21,12 @@ class profile::base (
   }
 
   #Make sure they have Log on as a service rights.
-  $sysadmins.each |String $sysadmin| {
-    local_security_policy { "Log on as a service":
-      ensure       => present,
-      policy_value => $sysadmin,
-    }
-  }
+#  $sysadmins.each |String $sysadmin| {
+#    local_security_policy { "Log on as a service":
+#      ensure       => present,
+#      policy_value => $sysadmin,
+#    }
+#  }
 
   #sysadmin full access directory
   file { $sysadminplayground:
