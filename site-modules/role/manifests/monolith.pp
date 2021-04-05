@@ -1,7 +1,7 @@
 class role::monolith {
 
   include profile::base
-  hwiis{ 'ponies':
+  class { 'hwiis':
     websitename      => 'ponies',
     websitedirectory => 'c:\\ponies'
   }
