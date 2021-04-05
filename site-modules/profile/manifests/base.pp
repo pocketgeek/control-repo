@@ -44,13 +44,13 @@ class profile::base (
   }
 
   #Standard packages
-  $stdpackages.each |String $package| {
-    package{ $package:
-      ensure   => installed,
-      provider => 'chocolatey',
-      notify   => Reboot['after_run'],
-    }
-  }
+#  $stdpackages.each |String $package| {
+#    package{ $package:
+#      ensure   => installed,
+#      provider => 'chocolatey',
+#      notify   => Reboot['after_run'],
+#    }
+#  }
 
   reboot { 'after_run':
     apply  => finished,
