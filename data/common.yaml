@@ -9,4 +9,4 @@ profile::base::sysadminplayground: 'c:\sysadminplayground'
 
 profile::base::stdpackages:
   - 7zip
-
+  - notepad++
