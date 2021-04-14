@@ -1,7 +1,7 @@
 class profile::iis_ponies {
 
   $websitename = 'ponies'
-  $websitedirectory = 'c:\\ponies'
+  $websitedirectory = 'c:/ponies'
 
 #Build website
   iis_site { $websitename:
@@ -23,13 +23,13 @@ class profile::iis_ponies {
   }
 
   #Website content.
-  file { "${websitedirectory}\\pony.jpeg":
+  file { "${websitedirectory}/pony.jpeg":
     ensure => 'present',
     source => 'puppet:///modules/hwiis/pony.jpeg',
   }
 
   #Website content
-  file { "${websitedirectory}\\default.htm":
+  file { "${websitedirectory}/default.htm":
     ensure => 'present',
     source => 'puppet:///modules/hwiis/default.htm',
   }
