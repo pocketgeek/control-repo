@@ -1,3 +1,4 @@
+#
 class profile::iis_ponies {
 
   $websitename = 'ponies'

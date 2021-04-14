@@ -1,3 +1,4 @@
+#
 class profile::iis_base {
   #IIS and required features
   $iis_features = ['Web-WebServer','Web-Scripting-Tools']

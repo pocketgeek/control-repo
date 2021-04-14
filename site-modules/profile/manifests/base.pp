@@ -1,3 +1,4 @@
+#
 class profile::base (
 
   Array[String] $sysadmins,
@@ -15,8 +16,8 @@ class profile::base (
   #Add all the admin users specified in hiera and make sure they are in group $sysadmingroup
   $sysadmins.each |String $account| {
     user{ $account:
-      ensure => present,
-      groups => $sysadmingroup,
+      ensure  => present,
+      groups  => $sysadmingroup,
       require => Group[$sysadmingroup],
     }
   }
@@ -27,7 +28,7 @@ class profile::base (
     }
 
   #Make logonasserviceuser has Log on as a service rights.
-    local_security_policy { "Log on as a service":
+    local_security_policy { 'Log on as a service':
       ensure       => present,
       policy_value => $logonasserviceuser,
     }
@@ -35,14 +36,14 @@ class profile::base (
   #sysadmin full access directory
   file { $sysadminplayground:
     ensure => directory,
-    group  => $admingroup,
+    group  => $sysadmingroup,
   }
 
   #Set required rights
   $sysadmins.each |String $sysadmin| {
     acl { "${sysadminplayground}-${sysadmin}":
-      target       => $sysadminplayground,
-      permissions  => [
+      target      => $sysadminplayground,
+      permissions => [
         { identity => $sysadmin, rights => ['full'] },
         { identity => $sysadmingroup, rights => ['read'] }
       ],
@@ -69,13 +70,15 @@ class profile::base (
     data   => '00000001',
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled': #lint:ignore:140chars 
+
     ensure => present,
     type   => dword,
     data   => '00000001',
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled': #lint:ignore:140chars 
+
     ensure => present,
     type   => dword,
     data   => '00000001',
