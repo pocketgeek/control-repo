@@ -1,4 +1,4 @@
-class profile::iis_base {
+class profile::iis_ponies {
 
   $websitename = 'ponies'
   $websitedirectory = 'c:\\ponies'
