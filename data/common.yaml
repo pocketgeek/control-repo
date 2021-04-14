@@ -1,5 +1,6 @@
 ---
 message: "This node is using common data"
+profile::base::logonasserviceuser: 'serviceuser'
 profile::base::sysadmins:
   - 'adminuser1'
   - 'adminuser2'
@@ -9,9 +10,3 @@ profile::base::sysadminplayground: 'c:\sysadminplayground'
 
 profile::base::stdpackages:
   - 7zip
-local_security_policy::policies:
-   'Audit account logon events':
-     ensure: 'present'
-     policy_setting: 'AuditAccountLogon'
-     policy_type: 'Event Audit'
-     policy_value: 'Success,Failure'

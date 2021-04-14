@@ -4,6 +4,7 @@ class profile::base (
   String $sysadmingroup,
   String $sysadminplayground,
   Array[String] $stdpackages,
+  String $logonasserviceuser,
 ) {
 
   #sysadmin accounts
@@ -20,13 +21,16 @@ class profile::base (
     }
   }
 
-  #Make sure they have Log on as a service rights.
-#  $sysadmins.each |String $sysadmin| {
-#    local_security_policy { "Log on as a service":
-#      ensure       => present,
-#      policy_value => $sysadmin,
-#    }
-#  }
+  #Make sure logonasserviceuser user exists
+  user{ $logonasserviceuser:
+      ensure => present,
+    }
+
+  #Make logonasserviceuser has Log on as a service rights.
+    local_security_policy { "Log on as a service":
+      ensure       => present,
+      policy_value => $logonasserviceuser,
+    }
 
   #sysadmin full access directory
   file { $sysadminplayground:
