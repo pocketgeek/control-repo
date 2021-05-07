@@ -43,6 +43,7 @@ class profile::base (
   $sysadmins.each |String $sysadmin| {
     acl { "${sysadminplayground}-${sysadmin}":
       target      => $sysadminplayground,
+      purge       => false,
       permissions => [
         { identity => $sysadmin, rights => ['full'] },
         { identity => $sysadmingroup, rights => ['read'] }
